@@ -1,0 +1,6 @@
+  0%|          | 0/3 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+
+
+
+100%|██████████| 3/3 [00:41<00:00, 13.85s/it]
+{'train_runtime': 78.5509, 'train_samples_per_second': 0.178, 'train_steps_per_second': 0.038, 'train_loss': 0.5284834305445353, 'epoch': 1.0}

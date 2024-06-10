@@ -1,0 +1,74 @@
+diff --git a/.gitignore b/.gitignore
+index 5d947ca..d128acd 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -16,3 +16,6 @@ bin-release/
+ # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+ # should NOT be excluded as they contain compiler settings and other important
+ # information for Eclipse / Flash Builder.
++
++create_path_caption.py
++__pycache__
+\ No newline at end of file
+diff --git a/README.md b/README.md
+index e65a9af..9ce659e 100644
+--- a/README.md
++++ b/README.md
+@@ -138,8 +138,31 @@ CUDA_VISIBLE_DEVICES=0 python videocon/training/pipeline_video/entailment_infere
+ 3. There are close 4600 instances in the dataset. We are in the process of getting requisite approvals for Lumiere data release for the public. We will update the training data once we have it.   
+ 
+ #### Training
+-1. We will release the VideoCon-Physics training protocol soon. Most of it is taken from original [VideoCon](https://github.com/Hritikbansal/videocon) repo.
++1. We have to download the mPLUG-Owl-video and VideoCon model that will be finetuned with our data to get VideoCon-Physics. Specifically, download them from huggingface to your local machine [mPLUG-Owl-Video](https://huggingface.co/MAGAer13/mplug-owl-llama-7b-video/tree/main) and [VideoCon](https://huggingface.co/videocon/owl-con/tree/main).
++2. Now, we prepare the data for model finetuning. Specifically, create the data of the form highlighted in [train_example.csv](examples/train_example.csv). Each instance has `videopath, caption, sa, pc` where `sa` is the semantic adherence and `pc` is the physical commonsense.
++3. Run the following command to convert the data into a form that is amenable to instruction-tuning for VideoCon. 
++```python
++python utils/prepare_train_data.py --input_csv examples/train_example.csv --output_folder examples/
++```
++It will generate a file named `videocon_format_train.csv`. You can do the same for the validation data. In our experiments, a few 100 instances from the train data were reserved for validation.
++Note: Update the `videopath` in the train and val csv to absolute paths in the local machine.
++4. Add relevant information to the config [video.yaml](videocon/training/configs/video.yaml). Specifically, you have to add the absolute paths to the train and val files. In addition, add the path to the base mPLUG-Owl-Video model.
++5. We can set appropriate training details in the [train_it.sh](videocon/training/scripts/train_it.sh) script. Specifically, set the location of the base mPLUG-Owl-Video model in the `pretrained-ckpt` argument and `pytorch_model.bin` location of the VideoCon model in the `finetuned-ckpt` argument. Also mention the experiment name and output directory `SAVE_NAME`. Note that the LoRA parameters are identical to that of VideoCon, so that the VideoCon checkpoint can be loaded seamlessly. Further, we clarify that VideoCon-Physics is trained on top of VideoCon.  
++6. Run the following commands to launch the training:
++```python
++cd videocon/training
++bash scripts/train_it.sh
++``` 
++7. After training, you can find the checkpoints in the `SAVE_NAME` output directories.
++8. 
+ 
+ 
+ ### Citation
+-1. TODO
++```
++@article{bansal2024videophy,
++  title={VideoPhy: Evaluating Physical Commonsense for Video Generation},
++  author={Bansal, Hritik and Lin, Zongyu and Xie, Tianyi and Zong, Zeshun and Yarom, Michal and Bitton, Yonatan and Jiang, Chenfanfu and Sun, Yizhou and Chang, Kai-Wei and Grover, Aditya},
++  journal={arXiv preprint arXiv:2406.03520},
++  year={2024}
++}
++```
+\ No newline at end of file
+diff --git a/videocon/training/pipeline_video/train.py b/videocon/training/pipeline_video/train.py
+index b7817bb..7e161e1 100644
+--- a/videocon/training/pipeline_video/train.py
++++ b/videocon/training/pipeline_video/train.py
+@@ -186,7 +186,7 @@ def main():
+                 lora_dropout=args.lora_dropout
+             )
+         model = get_peft_model(model, peft_config).to('cpu')
+-        with open('/local2/hbansal/videocon/checkpoint-5178/pytorch_model.bin', 'rb') as f:
++        with open(args.finetuned_ckpt, 'rb') as f:
+             ckpt = torch.load(f, map_location = torch.device('cpu'))
+         model.load_state_dict(ckpt)
+         print('Videocon loaded')
+@@ -215,9 +215,6 @@ def main():
+         config.data_files, config=config, 
+         tokenizer=tokenizer, seq_length=args.seq_length, loss_objective = args.loss_objective
+     )
+-
+-    if len(valid_data) > 500:
+-        valid_data = torch.utils.data.Subset(valid_data, range(500))
+         
+     trainer = CustomTrainer(
+         model=model,

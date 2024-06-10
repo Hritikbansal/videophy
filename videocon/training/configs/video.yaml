@@ -1,0 +1,6 @@
+data_files: [
+    '<absolute path to train file> (local_dir/train.csv)',
+    '<absolute path to val file> (local_dir/val.csv)',
+]
+
+pretrained_ckpt: '<path to mPLUGOwl-7B-Video> (local_dir/mplug-owl-llama-7b-video/)'
