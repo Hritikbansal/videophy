@@ -19,8 +19,8 @@ Evaluating Physical Commonsense In Video Generation".
 Recent advances in internet-scale video data pretraining have led to the development of text-to-video generative models that can create high-quality videos across a broad range of visual concepts and styles. Due to their ability to synthesize realistic motions and render complex objects, these generative models have the potential to become general-purpose simulators of the physical world. However, it is unclear how far we are from this goal with the existing text-to-video generative models. To this end, we present VideoPhy, a benchmark designed to assess whether the generated videos follow physical commonsense for real-world activities (e.g. marbles will roll down when placed on a slanted surface). Specifically, we curate a list of 688 captions that involve interactions between various material types in the physical world (e.g., solid-solid, solid-fluid, fluid-fluid). We then generate videos conditioned on these captions from diverse state-of-the-art text-to-video generative models, including open models (e.g., VideoCrafter2) and closed models (e.g., Lumiere from Google, Pika). Further, our human evaluation reveals that the existing models severely lack the ability to generate videos adhering to the given text prompts, while also lack physical commonsense. Specifically, the best performing model, Pika, generates videos that adhere to the caption and physical laws for only 19.7% of the instances. VideoPhy thus highlights that the video generative models are far from accurately simulating the physical world. Finally, we also supplement the dataset with an auto-evaluator, VideoCon-Physics, to assess semantic adherence and physical commonsense at scale.
 <h1 align="center"><img src="asset/main_graph.png" width="40%"><img src="asset/VideoPhysics.png" width="60%"></h1>
 
-## LeaderBoard 🏆
-We evaluate nine closed and open text-to-video generative models on VideoPhy dataset with **human annotation**. We report the percentage of testing prompts for which the T2V models generate videos that adhere to the conditioning caption and exhibit physical commonsense. We abbreviate semantic adherence as **SA**, physical commonsense as **PC**. **SA=1** signifies that the video aligns with given text semantics, while **PC=1** indicates alignment with intuitive physics. Rankings are based on **SA=1, PC=1** scores. 
+## Human LeaderBoard 🏆
+We evaluate 10 closed and open text-to-video generative models on VideoPhy dataset with **human annotation**. We report the percentage of testing prompts for which the T2V models generate videos that adhere to the conditioning caption and exhibit physical commonsense. We abbreviate semantic adherence as **SA**, physical commonsense as **PC**. **SA=1** signifies that the video aligns with given text semantics, while **PC=1** indicates alignment with intuitive physics. Rankings are based on **SA=1, PC=1** scores. 
 
 <div align="center">
 
@@ -28,15 +28,19 @@ We evaluate nine closed and open text-to-video generative models on VideoPhy dat
 | -- | --- | --- | --- | --- | --- |
 | 1 | [Pika](https://pika.art/)🥇 | Closed | **19.7** | 41.1 | **36.5** |
 | 2 | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥈 | Open |19.0 | 48.5 | 34.6 |
-| 3 | [LaVIE](https://arxiv.org/abs/2309.15103)🥉 | Open | 15.7 | **48.7** | 28.0 |
-| 4 | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945) | Closed | 12.5 | 48.5 | 25.0 |
-| 5 | [SVD-T2I2V](https://arxiv.org/abs/2311.15127) | Open | 11.9 | 42.4 | 30.8 |
-| 6 |  [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w) | Open | 11.9 | 30.2 | 32.6 |
-| 7 | [Lumiere-T2V](https://arxiv.org/abs/2401.12945) | Closed | 9.0 | 38.4 | 27.9 |
-| 8 | [Gen-2 (Runway)](https://arxiv.org/abs/2302.03011) | Closed | 7.6 | 26.6 | 27.2 |
-| 9 | [OpenSora](https://github.com/hpcaitech/Open-Sora) | Open | 4.9 | 18.0 | 23.5 |
+| 3 | [CogVideoX](https://github.com/THUDM/CogVideo)🥉 | Open |18.6 | 47.0 | 34.0 |
+| 4 | [LaVIE](https://arxiv.org/abs/2309.15103) | Open | 15.7 | **48.7** | 28.0 |
+| 5 | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945) | Closed | 12.5 | 48.5 | 25.0 |
+| 6 | [SVD-T2I2V](https://arxiv.org/abs/2311.15127) | Open | 11.9 | 42.4 | 30.8 |
+| 7 |  [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w) | Open | 11.9 | 30.2 | 32.6 |
+| 8 | [Lumiere-T2V](https://arxiv.org/abs/2401.12945) | Closed | 9.0 | 38.4 | 27.9 |
+| 9 | [Gen-2 (Runway)](https://arxiv.org/abs/2302.03011) | Closed | 7.6 | 26.6 | 27.2 |
+| 10 | [OpenSora](https://github.com/hpcaitech/Open-Sora) | Open | 4.9 | 18.0 | 23.5 |
 
 </div>
+
+## Automatic LeaderBoard 🏆
+We evaluate 10 closed and open text-to-video generative models on VideoPhy dataset with **our own auto evaluator (see our paper for more details)**. We report the percentage of testing prompts for which the T2V models generate videos that adhere to the conditioning caption and exhibit physical commonsense. We abbreviate semantic adherence as **SA**, physical commonsense as **PC**. **SA=1** signifies that the video aligns with given text semantics, while **PC=1** indicates alignment with intuitive physics. Rankings are based on **SA=1, PC=1** scores. 
 
 <div align="center">
 
@@ -53,7 +57,7 @@ We evaluate nine closed and open text-to-video generative models on VideoPhy dat
 | 8        |[Gen-2 (Runway)](https://arxiv.org/abs/2302.03011)         | 0.31   | 0.26   | 0.29    |
 | 10       | [OpenSora](https://github.com/hpcaitech/Open-Sora)       | 0.35   | 0.21   | 0.28    |
 </div>
-
+Why pika is 'low'? Our training data might not be enough for Pika, and better automatic evaluator is an active area of research."
 
 ## Examples 📷
 We provide one good and one bad examples for several models in terms of physical commonsense.
