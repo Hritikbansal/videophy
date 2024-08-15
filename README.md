@@ -30,13 +30,30 @@ We evaluate nine closed and open text-to-video generative models on VideoPhy dat
 | 2 | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥈 | Open |19.0 | 48.5 | 34.6 |
 | 3 | [LaVIE](https://arxiv.org/abs/2309.15103)🥉 | Open | 15.7 | **48.7** | 28.0 |
 | 4 | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945) | Closed | 12.5 | 48.5 | 25.0 |
-| 5 | [SVD-T2T2V](https://arxiv.org/abs/2311.15127) | Open | 11.9 | 42.4 | 30.8 |
+| 5 | [SVD-T2I2V](https://arxiv.org/abs/2311.15127) | Open | 11.9 | 42.4 | 30.8 |
 | 6 |  [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w) | Open | 11.9 | 30.2 | 32.6 |
 | 7 | [Lumiere-T2V](https://arxiv.org/abs/2401.12945) | Closed | 9.0 | 38.4 | 27.9 |
 | 8 | [Gen-2 (Runway)](https://arxiv.org/abs/2302.03011) | Closed | 7.6 | 26.6 | 27.2 |
 | 9 | [OpenSora](https://github.com/hpcaitech/Open-Sora) | Open | 4.9 | 18.0 | 23.5 |
 
 </div>
+
+<div align="center">
+
+| **#** | **Model**      | **PC=1** | **SA=1** | **Avg.** |
+|----------|----------------|--------|--------|---------|
+| 1      | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥇          | 0.36   | 0.47   | 0.41    |
+| 2      | [LaVIE](https://arxiv.org/abs/2309.15103)🥈          | 0.36   | 0.45   | 0.41    |
+| 3     | [CogVideoX](https://github.com/THUDM/CogVideo)🥉   | 0.39   | 0.40   | 0.39    |
+| 4        | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945)  | 0.25   | 0.46   | 0.35    |
+| 4        | [SVD-T2I2V](https://arxiv.org/abs/2311.15127)            | 0.34   | 0.37   | 0.35    |
+| 6        | [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w)     | 0.42   | 0.27   | 0.34    |
+| 7        | [Lumiere-T2V](https://arxiv.org/abs/2401.12945)   | 0.31   | 0.35   | 0.33    |
+| 8        | [Pika](https://pika.art/)           | 0.33   | 0.25   | 0.29    |
+| 8        |[Gen-2 (Runway)](https://arxiv.org/abs/2302.03011)         | 0.31   | 0.26   | 0.29    |
+| 10       | [OpenSora](https://github.com/hpcaitech/Open-Sora)       | 0.35   | 0.21   | 0.28    |
+</div>
+
 
 ## Examples 📷
 We provide one good and one bad examples for several models in terms of physical commonsense.
