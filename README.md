@@ -40,22 +40,23 @@ We evaluate 10 closed and open text-to-video generative models on VideoPhy datas
 </div>
 
 ## Automatic LeaderBoard 🏆
-We evaluate 10 closed and open text-to-video generative models on VideoPhy dataset with **our own auto evaluator (see our paper for more details)**. We report the percentage of testing prompts for which the T2V models generate videos that adhere to the conditioning caption and exhibit physical commonsense. We abbreviate semantic adherence as **SA**, physical commonsense as **PC**. **SA=1** signifies that the video aligns with given text semantics, while **PC=1** indicates alignment with intuitive physics. Rankings are based on **SA=1, PC=1** scores. 
+We evaluate 11 closed and open text-to-video generative models on VideoPhy dataset with **our own auto evaluator (see our paper for more details)**. We report the percentage of testing prompts for which the T2V models generate videos that adhere to the conditioning caption and exhibit physical commonsense. We abbreviate semantic adherence as **SA**, physical commonsense as **PC**. **SA=1** signifies that the video aligns with given text semantics, while **PC=1** indicates alignment with intuitive physics. Rankings are based on average of **SA=1, PC=1** scores. 
 
 <div align="center">
 
 | **#** | **Model**      | **PC=1** | **SA=1** | **Avg.** |
 |----------|----------------|--------|--------|---------|
-| 1      | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥇          | 0.36   | 0.47   | 0.41    |
-| 2      | [LaVIE](https://arxiv.org/abs/2309.15103)🥈          | 0.36   | 0.45   | 0.41    |
-| 3     | [CogVideoX-2B](https://github.com/THUDM/CogVideo)🥉   | 0.39   | 0.40   | 0.39    |
-| 4        | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945)  | 0.25   | 0.46   | 0.35    |
-| 4        | [SVD-T2I2V](https://arxiv.org/abs/2311.15127)            | 0.34   | 0.37   | 0.35    |
-| 6        | [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w)     | 0.42   | 0.27   | 0.34    |
-| 7        | [Lumiere-T2V](https://arxiv.org/abs/2401.12945)   | 0.31   | 0.35   | 0.33    |
-| 8        | [Pika](https://pika.art/)           | 0.33   | 0.25   | 0.29    |
-| 8        |[Gen-2 (Runway)](https://arxiv.org/abs/2302.03011)         | 0.31   | 0.26   | 0.29    |
-| 10       | [OpenSora](https://github.com/hpcaitech/Open-Sora)       | 0.35   | 0.21   | 0.28    |
+| 1      | [CogVideoX-5B](https://github.com/THUDM/CogVideo)🥇          |  41  | 57   | 49    |
+| 1      | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥈          | 36   | 47   | 41    |
+| 2      | [LaVIE](https://arxiv.org/abs/2309.15103)🥉          | 36   | 45   | 41    |
+| 3     | [CogVideoX-2B](https://github.com/THUDM/CogVideo)   | 39   | 40   | 39    |
+| 4        | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945)  | 25   | 46   | 35    |
+| 4        | [SVD-T2I2V](https://arxiv.org/abs/2311.15127)            | 34   | 37   | 35    |
+| 6        | [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w)     | 42   | 27   | 34    |
+| 7        | [Lumiere-T2V](https://arxiv.org/abs/2401.12945)   | 31   | 35   | 33    |
+| 8        | [Pika](https://pika.art/)           | 33   | 25   | 29    |
+| 8        |[Gen-2 (Runway)](https://arxiv.org/abs/2302.03011)         | 31   | 26   | 29    |
+| 10       | [OpenSora](https://github.com/hpcaitech/Open-Sora)       | 35   | 21   | 28    |
 </div>
 Why pika is 'low'? Our training data might not be enough for Pika, and better automatic evaluator is an active area of research."
 
