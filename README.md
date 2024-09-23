@@ -28,7 +28,7 @@ We evaluate 10 closed and open text-to-video generative models on VideoPhy datas
 | -- | --- | --- | --- | --- | --- |
 | 1 | [Pika](https://pika.art/)🥇 | Closed | **19.7** | 41.1 | **36.5** |
 | 2 | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥈 | Open |19.0 | 48.5 | 34.6 |
-| 3 | [CogVideoX](https://github.com/THUDM/CogVideo)🥉 | Open |18.6 | 47.0 | 34.0 |
+| 3 | [CogVideoX-2B](https://github.com/THUDM/CogVideo)🥉 | Open |18.6 | 47.0 | 34.0 |
 | 4 | [LaVIE](https://arxiv.org/abs/2309.15103) | Open | 15.7 | **48.7** | 28.0 |
 | 5 | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945) | Closed | 12.5 | 48.5 | 25.0 |
 | 6 | [SVD-T2I2V](https://arxiv.org/abs/2311.15127) | Open | 11.9 | 42.4 | 30.8 |
@@ -48,7 +48,7 @@ We evaluate 10 closed and open text-to-video generative models on VideoPhy datas
 |----------|----------------|--------|--------|---------|
 | 1      | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥇          | 0.36   | 0.47   | 0.41    |
 | 2      | [LaVIE](https://arxiv.org/abs/2309.15103)🥈          | 0.36   | 0.45   | 0.41    |
-| 3     | [CogVideoX](https://github.com/THUDM/CogVideo)🥉   | 0.39   | 0.40   | 0.39    |
+| 3     | [CogVideoX-2B](https://github.com/THUDM/CogVideo)🥉   | 0.39   | 0.40   | 0.39    |
 | 4        | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945)  | 0.25   | 0.46   | 0.35    |
 | 4        | [SVD-T2I2V](https://arxiv.org/abs/2311.15127)            | 0.34   | 0.37   | 0.35    |
 | 6        | [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w)     | 0.42   | 0.27   | 0.34    |
