@@ -26,16 +26,18 @@ We evaluate 10 closed and open text-to-video generative models on VideoPhy datas
 
 | **#** | **Model** | **Source** | **SA=1, PC=1** | **SA=1** | **PC=1** |
 | -- | --- | --- | --- | --- | --- |
-| 1 | [Pika](https://pika.art/)🥇 | Closed | **19.7** | 41.1 | **36.5** |
-| 2 | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥈 | Open |19.0 | 48.5 | 34.6 |
-| 3 | [CogVideoX-2B](https://github.com/THUDM/CogVideo)🥉 | Open |18.6 | 47.0 | 34.0 |
-| 4 | [LaVIE](https://arxiv.org/abs/2309.15103) | Open | 15.7 | **48.7** | 28.0 |
-| 5 | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945) | Closed | 12.5 | 48.5 | 25.0 |
-| 6 | [SVD-T2I2V](https://arxiv.org/abs/2311.15127) | Open | 11.9 | 42.4 | 30.8 |
-| 7 |  [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w) | Open | 11.9 | 30.2 | 32.6 |
-| 8 | [Lumiere-T2V](https://arxiv.org/abs/2401.12945) | Closed | 9.0 | 38.4 | 27.9 |
-| 9 | [Gen-2 (Runway)](https://arxiv.org/abs/2302.03011) | Closed | 7.6 | 26.6 | 27.2 |
-| 10 | [OpenSora](https://github.com/hpcaitech/Open-Sora) | Open | 4.9 | 18.0 | 23.5 |
+| 1      | [CogVideoX-5B](https://github.com/THUDM/CogVideo)🥇 | Open |  **39.6**  | **63.3**   | **53**    |
+| 2 | [Pika](https://pika.art/)🥈 | Closed | 19.7 | 41.1 | 36.5 |
+| 3 | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥉 | Open |19.0 | 48.5 | 34.6 |
+| 4 | [CogVideoX-2B](https://github.com/THUDM/CogVideo) | Open |18.6 | 47.2 | 34.1 |
+| 5 | [LaVIE](https://arxiv.org/abs/2309.15103) | Open | 15.7 | 48.7 | 28.0 |
+| 6 | [Luma Dream Machine](https://lumalabs.ai/dream-machine) | Closed  | 13.6   | 61.9   | 21.8    |
+| 7 | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945) | Closed | 12.5 | 48.5 | 25.0 |
+| 8 | [SVD-T2I2V](https://arxiv.org/abs/2311.15127) | Open | 11.9 | 42.4 | 30.8 |
+| 9 |  [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w) | Open | 11.9 | 30.2 | 32.6 |
+| 10 | [Lumiere-T2V](https://arxiv.org/abs/2401.12945) | Closed | 9.0 | 38.4 | 27.9 |
+| 11 | [Gen-2 (Runway)](https://arxiv.org/abs/2302.03011) | Closed | 7.6 | 26.6 | 27.2 |
+| 12 | [OpenSora](https://github.com/hpcaitech/Open-Sora) | Open | 4.9 | 18.0 | 23.5 |
 
 </div>
 
