@@ -55,14 +55,16 @@ We evaluate 12 closed and open text-to-video generative models on VideoPhy datas
 | 2     | [Luma Dream Machine](https://lumalabs.ai/dream-machine)🥈   | 30   | 53   | 41.5    |
 | 3      | [VideoCrafter2](https://arxiv.org/abs/2401.09047)🥉          | 36   | 47   | 41    |
 | 4      | [LaVIE](https://arxiv.org/abs/2309.15103)          | 36   | 45   | 41    |
-| 5     | [CogVideoX-2B](https://github.com/THUDM/CogVideo)   | 39   | 40   | 39    |
-| 6        | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945)  | 25   | 46   | 35    |
-| 7        | [SVD-T2I2V](https://arxiv.org/abs/2311.15127)            | 34   | 37   | 35    |
-| 8        | [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w)     | 42   | 27   | 34    |
-| 9        | [Lumiere-T2V](https://arxiv.org/abs/2401.12945)   | 31   | 35   | 33    |
-| 10        | [Pika](https://pika.art/)           | 33   | 25   | 29    |
-| 11        |[Gen-2 (Runway)](https://arxiv.org/abs/2302.03011)         | 31   | 26   | 29    |
-| 12       | [OpenSora](https://github.com/hpcaitech/Open-Sora)       | 35   | 21   | 28    |
+| 5      | [Mochi](https://github.com/genmoai/mochi)          | 31   | 50   | 41    |
+| 6     | [CogVideoX-2B](https://github.com/THUDM/CogVideo)   | 39   | 40   | 39    |
+| 7        | [Lumiere-T2I2V](https://arxiv.org/abs/2401.12945)  | 25   | 46   | 35    |
+| 8        | [SVD-T2I2V](https://arxiv.org/abs/2311.15127)            | 34   | 37   | 35    |
+| 9        | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo)            | 28   | 42   | 35    |
+| 10        | [ZeroScope](https://huggingface.co/cerspense/zeroscope_v2_576w)     | 42   | 27   | 34    |
+| 11        | [Lumiere-T2V](https://arxiv.org/abs/2401.12945)   | 31   | 35   | 33    |
+| 12        | [Pika](https://pika.art/)           | 33   | 25   | 29    |
+| 13        |[Gen-2 (Runway)](https://arxiv.org/abs/2302.03011)         | 31   | 26   | 29    |
+| 14       | [OpenSora](https://github.com/hpcaitech/Open-Sora)       | 35   | 21   | 28    |
 </div>
 Why pika is 'low'? Our training data might not be enough for Pika, and better automatic evaluator is an active area of research."
 
