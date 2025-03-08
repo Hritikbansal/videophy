@@ -1,40 +1,26 @@
 import os
-import csv
-import json
-import torch
-import argparse
-import pandas as pd
-from tqdm import tqdm
 import re
-from collections import defaultdict
-from peft import LoraConfig, get_peft_model
-from torch.utils.data import Dataset, DataLoader
-from transformers.models.llama.tokenization_llama import LlamaTokenizer
-from mplug_owl_video.modeling_mplug_owl import MplugOwlForConditionalGeneration
-from mplug_owl_video.processing_mplug_owl import MplugOwlImageProcessor, MplugOwlProcessor
-import os
 import csv
 import json
-import torch
 import argparse
-import pandas as pd
+from collections import defaultdict
+
 import numpy as np
+import pandas as pd
+import torch
 from tqdm import tqdm
-from collections import defaultdict
+
+from peft import LoraConfig, get_peft_model
 from transformers.models.llama.tokenization_llama import LlamaTokenizer
-from torch.utils.data import DataLoader
 from mplug_owl_video.modeling_mplug_owl import MplugOwlForConditionalGeneration
 from mplug_owl_video.processing_mplug_owl import MplugOwlImageProcessor, MplugOwlProcessor
-from peft import LoraConfig, get_peft_model
-from data_utils.xgpt3_dataset import MultiModalDataset
-from utils import batchify
-from huggingface_hub import hf_hub_download
-import re
+from template import *
 
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--input_csv', type = str, required = True, help = 'csv')
-parser.add_argument('--checkpoint', type = str, required = True, help = '')
+parser.add_argument('--task', type = str, default='sa', choices=['sa', 'pc', 'rule'], help='task')
+parser.add_argument('--checkpoint', type = str, required = True, help = 'checkpoint')
 parser.add_argument('--lora_checkpoint', default = None, type = str, help = 'lora trained ckpt')
 parser.add_argument('--batch_size', type = int, default = 1)
 parser.add_argument('--num_frames', type = int, default = 32)
@@ -58,7 +44,12 @@ def inference(args, model, df, processor, tokenizer):
     with torch.no_grad():
         for i,row in tqdm(df.iterrows()):
             videopaths = [row['videopath']]
-            prompts = [row['caption']] 
+            if args.task == 'sa':
+                prompts = [PROMPT_SA.format(caption=row['caption'])] 
+            elif args.task == 'pc':
+                prompts = [PROMPT_PHYSICS]
+            else:
+                prompts = [PROMPT_RULE.format(rule=row['rule'])]
             inputs = processor(text=prompts, videos=videopaths, num_frames=args.num_frames, return_tensors='pt')
             inputs = {k: v.bfloat16() if v.dtype == torch.float else v for k, v in inputs.items()}
             inputs = {k: v.to(model.device) for k, v in inputs.items()}
@@ -67,7 +58,6 @@ def inference(args, model, df, processor, tokenizer):
             output_lower = output.lower().strip()
             
             print(output_lower)
-            # Check if any key in num_map is present in the output.
             score = None
             for key, val in num_map.items():
                 if key in output_lower:
@@ -109,7 +99,7 @@ def main():
     processor = MplugOwlProcessor(image_processor, tokenizer)
 
     df = pd.read_csv(args.input_csv)
-    df = df.iloc[:20]
+    # df = df.iloc[:20]
 
     tokenizer = LlamaTokenizer.from_pretrained(checkpoint)
     image_processor = MplugOwlImageProcessor.from_pretrained(checkpoint)
