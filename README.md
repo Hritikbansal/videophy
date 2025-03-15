@@ -16,6 +16,7 @@ Evaluating Physical Commonsense In Video Generation".
 
 ## Updates
 
+**March 2025:** We have released VideoPhy-2, a challenging action-centric physical commonsense evaluation [[more details]](VIDEOPHY2). \
 **10 Oct 2024:** We have added CogVideoX-2B/5B and Dream Machine (LumaAI) human predictions to [test data](https://huggingface.co/datasets/videophysics/videophy_test_public). \
 **11 Oct 2024:** We ran our auto-evaluator for video-text alignment and physical commonsense on the videos from the test data. We release the auto eval scores [here](https://huggingface.co/datasets/videophysics/videophy_autoeval_scores).
 ## Abstract
