@@ -2,6 +2,7 @@
 ![Text2Video Model](https://img.shields.io/badge/Text2Video-Model-green) 
 ![Physical Commonsense](https://img.shields.io/badge/Physical-Commonsense-green) 
 
+VIDEOPHY2: [[Webpage](https://videophy2.github.io/)] [[Paper](https://arxiv.org/abs/2503.06800)] [[Test Dataset 🤗](https://huggingface.co/datasets/videophysics/videophy2_test)] [[Train Dataset 🤗](https://huggingface.co/datasets/videophysics/videophy2_train)] [[AutoRater 🤗](https://huggingface.co/videophysics/videophy_2_auto)] [[Twitter]()]
 
 This repository contains the official implementation and data for "VideoPhy:
 Evaluating Physical Commonsense In Video Generation".
