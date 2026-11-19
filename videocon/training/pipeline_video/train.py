@@ -25,7 +25,16 @@ parser.add_argument('--pretrained-ckpt', type=str, default='MAGAer13/mplug-owl-l
                     help='Path to the pretrained checkpoint.')
 parser.add_argument('--finetuned-ckpt', type=str, default=None,
                     help='Path to the finetuned checkpoint.')
-parser.add_argument('--inference_mode', type=bool, default=False,
+def parse_bool(value):
+    value = value.lower()
+    if value == 'true':
+        return True
+    if value == 'false':
+        return False
+    raise argparse.ArgumentTypeError("expected 'true' or 'false'")
+
+
+parser.add_argument('--inference_mode', type=parse_bool, default=False,
                     help='The inference mode.')
 parser.add_argument('--seq-length', type=int, default=1024,
                     help='Maximum sequence length to process.')
