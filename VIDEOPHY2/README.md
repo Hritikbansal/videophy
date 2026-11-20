@@ -58,6 +58,7 @@ git clone https://huggingface.co/videophysics/videophy_2_auto/
 
 4. Semantic Adherence Inference
 - We need to have a csv containing two columns `videopath` and `caption`. Here, the aim is to judge whether the caption is grounded in the video or not. We present an example [sa_pc.csv](examples/sa_pc.csv).
+- Use the original caption, not the upsampled caption, even if the video was generated from the upsampled one. This matches the paper's human evaluation, where annotators saw the original prompt.
 - Inference command:
 ```python
 CUDA_VISIBLE_DEVICES=0 python inference.py --input_csv examples/sa_pc.csv  --checkpoint <path_to_dir/videophy_2_auto> --output_csv examples/output_sa.csv --task sa
